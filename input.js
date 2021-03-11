@@ -1,12 +1,5 @@
-const connect = require('./client');
+const setupInput = require('./play');
 
-console.log('Connecting ...');
-connect();
-
-/**
- * Setup User Interface 
- * Specifically, so that we can handle user input via stdin
- */
 const setupInput = function() {
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -25,13 +18,3 @@ handleUserInput.on('data', (key) => {
     console.log("W is pressed hahaha, game over...");
   }
 });
-
-module.exports = {setupInput};
-
-
-
-
-
-
-// handleUserInput should check for the ctrl + c input and terminate the game. 
-//Run the code to ensure that there are no errors and that we can terminate the game using ctrl + c.
